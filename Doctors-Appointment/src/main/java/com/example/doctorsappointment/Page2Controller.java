@@ -22,7 +22,7 @@ public class Page2Controller {
     private void openAppointmentsPage() {
         try {
             Stage stage = (Stage) btnSubmit.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/page3.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("page3.fxml"));
             stage.setScene(new Scene(loader.load()));
             stage.show();
         } catch (Exception ex) {

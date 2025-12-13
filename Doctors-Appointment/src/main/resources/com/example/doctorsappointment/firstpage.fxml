@@ -8,6 +8,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@app.css"
             style="-fx-background-color: linear-gradient(to right, #e8d9c6, #d6c2af);"
             xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -18,7 +19,7 @@
           AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
 
         <Text text="Welcome to the Doctor's Appointment Management System"
-              style="-fx-fill:#4a3b2c;">
+              styleClass="title-text">
             <font>
                 <Font name="Bodoni MT Bold Italic" size="20.0"/>
             </font>
@@ -33,9 +34,9 @@
 
         <HBox spacing="20" alignment="CENTER">
             <Button fx:id="btnPatient" text="Patient"
-                    style="-fx-background-color: #87CEEB; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20; -fx-background-radius: 10;"/>
+                    styleClass="main-button"/>
             <Button fx:id="btnDoctor" text="Doctor"
-                    style="-fx-background-color: #87CEEB; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20; -fx-background-radius: 10;"/>
+                    styleClass="main-button"/>
         </HBox>
 
     </VBox>
