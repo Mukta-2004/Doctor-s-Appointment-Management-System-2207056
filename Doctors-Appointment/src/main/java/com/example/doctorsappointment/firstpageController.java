@@ -19,7 +19,7 @@ public class firstpageController {
         private void goToDoctorPage() {
             try {
                 Stage stage = (Stage) btnDoctor.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/secondpage.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("page2.fxml"));
                 stage.setScene(new Scene(loader.load()));
                 stage.show();
             } catch (Exception ex) {
