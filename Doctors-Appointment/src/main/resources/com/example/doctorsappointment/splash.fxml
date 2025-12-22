@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #f6e8d7, #e3cbb5);"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.doctorsappointment.SplashController">
+
+    <ImageView
+            AnchorPane.topAnchor="0.0"
+            AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0"
+            preserveRatio="false">
+            smooth="true">
+        <image>
+            <Image url="@images/logo.jpeg"/>
+        </image>
+    </ImageView>
+
+
+
+</AnchorPane>

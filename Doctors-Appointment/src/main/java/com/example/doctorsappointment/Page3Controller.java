@@ -13,9 +13,9 @@ public class Page3Controller {
         // SAMPLE DATA FOR NOW
         listAppointments.setItems(FXCollections.observableArrayList(
                 "10:00 AM - Patient: Noman",
-                "10:30 AM - Patient: Rafi",
+                "10:30 AM - Patient: Moumia",
                 "11:00 AM - Patient: Rahim",
-                "12:00 PM - Patient: Anika"
+                "12:00 PM - Patient: Mou"
         ));
     }
 }
