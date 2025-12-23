@@ -13,7 +13,6 @@ public class SceneUtil {
             );
 
             Scene scene = new Scene(loader.load());
-
             stage.setScene(scene);
             stage.setMaximized(true);
             stage.show();
