@@ -9,12 +9,16 @@ import javafx.scene.Scene;
 
 public class firstpageController {
 
-        @FXML private Button btnDoctor;
+    @FXML
+    private Button btnDoctor;
 
-        @FXML
-        public void initialize() {
-            btnDoctor.setOnAction(e -> goToDoctorPage());
-        }
+    @FXML
+    public void initialize() {
+        btnDoctor.setOnAction(e -> {
+            Stage stage = (Stage) btnDoctor.getScene().getWindow();
+            SceneUtil.switchScene(stage, "page2.fxml");
+        });
+    }
 
         private void goToDoctorPage() {
             try {

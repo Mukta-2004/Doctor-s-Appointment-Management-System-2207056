@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.doctorsappointment.SectorListController"
+      spacing="20"
+      alignment="CENTER"
+      style="-fx-padding: 30;">
+
+    <Text text="Choose Doctor Specialization">
+        <font>
+            <Font size="20"/>
+        </font>
+    </Text>
+
+    <Button text="Orthopedic" onAction="#openOrthopedic"/>
+    <Button text="Child Specialist" onAction="#openChild"/>
+    <Button text="Surgeon" onAction="#openSurgeon"/>
+    <Button text="Medicine Specialist" onAction="#openMedicine"/>
+
+</VBox>
