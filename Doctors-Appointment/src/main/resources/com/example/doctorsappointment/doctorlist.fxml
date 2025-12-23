@@ -9,6 +9,7 @@
       fx:controller="com.example.doctorsappointment.DoctorListController"
       spacing="15"
       alignment="CENTER"
+      prefHeight="600" prefWidth="800"
       style="-fx-padding: 30;">
 
     <Text fx:id="sectorTitle">
@@ -17,6 +18,6 @@
         </font>
     </Text>
 
-    <ListView fx:id="doctorList" prefHeight="200"/>
+    <ListView fx:id="doctorList" />
 
 </VBox>

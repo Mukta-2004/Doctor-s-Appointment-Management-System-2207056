@@ -12,7 +12,8 @@ public class SplashController {
 
         delay.setOnFinished(e -> {
             Stage stage = (Stage) Stage.getWindows().get(0);
-            SceneUtil.switchScene(stage, "firstpage.fxml");
+            SceneUtil.switchSceneFixed(stage, "firstpage.fxml");
+
         });
 
         delay.play();

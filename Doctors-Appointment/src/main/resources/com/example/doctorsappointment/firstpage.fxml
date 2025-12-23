@@ -16,7 +16,6 @@
 
     <!-- CENTER CONTENT -->
     <center>
-        <StackPane>
         <VBox alignment="CENTER" spacing="25" maxWidth="800">
 
             <Text text="Welcome to the Doctor's Appointment Management System">
@@ -37,7 +36,7 @@
             </HBox>
 
         </VBox>
-        </StackPane>
+
     </center>
 
 </BorderPane>

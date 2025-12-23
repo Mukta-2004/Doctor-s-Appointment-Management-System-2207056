@@ -9,6 +9,7 @@
       fx:controller="com.example.doctorsappointment.SectorListController"
       spacing="20"
       alignment="CENTER"
+      prefHeight="600" prefWidth="800"
       style="-fx-padding: 30;">
 
     <Text text="Choose Doctor Specialization">
