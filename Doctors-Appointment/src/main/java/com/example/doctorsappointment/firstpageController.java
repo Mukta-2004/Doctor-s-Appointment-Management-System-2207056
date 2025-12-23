@@ -1,11 +1,8 @@
 package com.example.doctorsappointment;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 
 public class firstpageController {
 
@@ -13,22 +10,21 @@ public class firstpageController {
     private Button btnDoctor;
 
     @FXML
+    private Button btnPatient;
+
+    @FXML
     public void initialize() {
+
+        // Doctor button → Doctor login/info page
         btnDoctor.setOnAction(e -> {
             Stage stage = (Stage) btnDoctor.getScene().getWindow();
             SceneUtil.switchScene(stage, "page2.fxml");
         });
-    }
 
-        private void goToDoctorPage() {
-            try {
-                Stage stage = (Stage) btnDoctor.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("page2.fxml"));
-                stage.setScene(new Scene(loader.load()));
-                stage.show();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
+        // Patient button → Sector list page
+        btnPatient.setOnAction(e -> {
+            Stage stage = (Stage) btnPatient.getScene().getWindow();
+            SceneUtil.switchScene(stage, "sectorlist.fxml");
+        });
     }
-
+}

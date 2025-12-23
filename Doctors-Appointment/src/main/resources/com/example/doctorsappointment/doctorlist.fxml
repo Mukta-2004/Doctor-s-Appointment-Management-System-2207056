@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.doctorsappointment.DoctorListController"
+      spacing="15"
+      alignment="CENTER"
+      style="-fx-padding: 30;">
+
+    <Text fx:id="sectorTitle">
+        <font>
+            <Font size="18"/>
+        </font>
+    </Text>
+
+    <ListView fx:id="doctorList" prefHeight="200"/>
+
+</VBox>
