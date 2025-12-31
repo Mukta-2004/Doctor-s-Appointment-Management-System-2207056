@@ -7,7 +7,7 @@
 <VBox xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.doctorsappointment.SectorListController"
-      spacing="20"
+      spacing="15"
       alignment="CENTER"
       prefHeight="600" prefWidth="800"
       style="-fx-padding: 30;">
@@ -18,9 +18,16 @@
         </font>
     </Text>
 
-    <Button text="Orthopedic" onAction="#openOrthopedic"/>
-    <Button text="Child Specialist" onAction="#openChild"/>
-    <Button text="Surgeon" onAction="#openSurgeon"/>
-    <Button text="Medicine Specialist" onAction="#openMedicine"/>
+    <Button text="Orthopedic" prefWidth="260" onAction="#openOrthopedic"/>
+    <Button text="Child Specialist" prefWidth="260" onAction="#openChild"/>
+    <Button text="Surgeon" prefWidth="260" onAction="#openSurgeon"/>
+    <Button text="Medicine Specialist" prefWidth="260" onAction="#openMedicine"/>
+    <Button text="Hematology" prefWidth="260" onAction="#openHematology"/>
+    <Button text="Gynae and Obs" prefWidth="260" onAction="#openGynae"/>
+    <Button text="Gastroenterology" prefWidth="260" onAction="#openGastro"/>
+    <Button text="Urology" prefWidth="260" onAction="#openUrology"/>
+    <Button text="Neurology" prefWidth="260" onAction="#openNeurology"/>
+    <Button text="Psychiatry" prefWidth="260" onAction="#openPsychiatry"/>
+    <Button text="Pathology" prefWidth="260" onAction="#openPathology"/>
 
 </VBox>
