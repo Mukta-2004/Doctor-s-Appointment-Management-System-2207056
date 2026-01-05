@@ -15,6 +15,15 @@ public class DoctorListController {
     @FXML
     public void initialize() {
         sectorTitle.setText("Doctors for " + DoctorData.selectedSector);
+        doctorList.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // double click
+                DoctorData.selectedDoctor = doctorList.getSelectionModel().getSelectedItem();
+                SceneUtil.switchScene(
+                        (Stage) doctorList.getScene().getWindow(),
+                        "question.fxml"
+                );
+            }
+        });
 
         switch (DoctorData.selectedSector) {
 
@@ -40,7 +49,7 @@ public class DoctorListController {
                         "Dr. Rajib Baishnob\nMBBS (Sylhet MAG Osmani)\nBCS (Health)\nMS (General Surgery)\nSenior Surgeon\nBMDC: A103083",
                         "Dr. Nayeem Islam\nMBBS (DMC)\nMS (Laparoscopy)\nConsultant Surgeon\nBMDC: S667821",
                         "Dr. Megha Roy\nMBBS (SSMC)\nMS (Cardiac Surgery)\nHeart Surgeon\nBMDC: S778912",
-                        "Dr. Fahim Chowdhury\nMBBS (CMC)\nMS (Neuro Surgery)\nNeurosurgeon\nBMDC: S889324"
+                        "Dr. Mohashweta Deb Sneha\nMBBS (Sylhet MAG Osmani)\nMS (Neuro Surgery)\nNeurosurgeon\nBMDC: S889324"
                 );
                 break;
 
@@ -63,8 +72,8 @@ public class DoctorListController {
 
             case "Dept of Gynae and Obs":
                 doctorList.getItems().addAll(
-                        "Dr. Farzana Akter\nMBBS (SSMC)\nFCPS (Gynae)\nGynecologist\nBMDC: G445566",
-                        "Dr. Tania Rahman\nMBBS (DMC)\nMS (Obs & Gynae)\nConsultant\nBMDC: G556677",
+                        "Dr. Farzana Akter\nMBBS (DMC)\nFCPS (Gynae)\nGynecologist\nBMDC: G445566",
+                        "Dr. Nafisa Tabassum Raha\nMBBS (SSMC)\nMS (Obs & Gynae)\nConsultant\nBMDC: G556677",
                         "Dr. Ruma Chowdhury\nMBBS (CMC)\nDGO\nSenior Consultant\nBMDC: G667788",
                         "Dr. Anika Islam\nMBBS (RMC)\nFCPS (Obs)\nObstetrician\nBMDC: G778899"
                 );
