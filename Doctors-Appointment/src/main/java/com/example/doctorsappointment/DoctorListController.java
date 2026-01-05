@@ -3,6 +3,7 @@ package com.example.doctorsappointment;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class DoctorListController {
 
@@ -15,9 +16,12 @@ public class DoctorListController {
     @FXML
     public void initialize() {
         sectorTitle.setText("Doctors for " + DoctorData.selectedSector);
+
         doctorList.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2) { // double click
-                DoctorData.selectedDoctor = doctorList.getSelectionModel().getSelectedItem();
+            if (event.getClickCount() == 2) {
+                DoctorData.selectedDoctor =
+                        doctorList.getSelectionModel().getSelectedItem();
+
                 SceneUtil.switchScene(
                         (Stage) doctorList.getScene().getWindow(),
                         "question.fxml"
@@ -46,10 +50,10 @@ public class DoctorListController {
 
             case "Surgeon":
                 doctorList.getItems().addAll(
-                        "Dr. Rajib Baishnob\nMBBS (Sylhet MAG Osmani)\nBCS (Health)\nMS (General Surgery)\nSenior Surgeon\nBMDC: A103083",
+                        "Dr. Rajib Baishnob\nMBBS (SOMC)\nBCS (Health)\nMS (General Surgery)\nSenior Surgeon\nBMDC: A103083",
                         "Dr. Nayeem Islam\nMBBS (DMC)\nMS (Laparoscopy)\nConsultant Surgeon\nBMDC: S667821",
                         "Dr. Megha Roy\nMBBS (SSMC)\nMS (Cardiac Surgery)\nHeart Surgeon\nBMDC: S778912",
-                        "Dr. Mohashweta Deb Sneha\nMBBS (Sylhet MAG Osmani)\nMS (Neuro Surgery)\nNeurosurgeon\nBMDC: S889324"
+                        "Dr. Mohashweta Deb Sneha\nMBBS (SOMC)\nMS (Neuro Surgery)\nNeurosurgeon\nBMDC: S889324"
                 );
                 break;
 
@@ -62,7 +66,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Dept of Hematology":
+            case "Hematology":
                 doctorList.getItems().addAll(
                         "Dr. Kamal Uddin\nMBBS (DMC)\nMD (Hematology)\nConsultant Hematologist\nBMDC: H112233",
                         "Dr. Nusrat Jahan\nMBBS (CMC)\nFCPS (Hematology)\nSenior Consultant\nBMDC: H223344",
@@ -70,7 +74,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Dept of Gynae and Obs":
+            case "Gynae and Obs":
                 doctorList.getItems().addAll(
                         "Dr. Farzana Akter\nMBBS (DMC)\nFCPS (Gynae)\nGynecologist\nBMDC: G445566",
                         "Dr. Nafisa Tabassum Raha\nMBBS (SSMC)\nMS (Obs & Gynae)\nConsultant\nBMDC: G556677",
@@ -79,7 +83,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Dept of Gastroenterology":
+            case "Gastroenterology":
                 doctorList.getItems().addAll(
                         "Dr. Mahmud Hasan\nMBBS (DMC)\nMD (Gastro)\nConsultant\nBMDC: GA112233",
                         "Dr. Rashed Khan\nMBBS (CMC)\nFCPS (Gastro)\nSpecialist\nBMDC: GA223344",
@@ -87,7 +91,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Dept of Urology":
+            case "Urology":
                 doctorList.getItems().addAll(
                         "Dr. Aminul Islam\nMBBS (DMC)\nMS (Urology)\nConsultant Urologist\nBMDC: U112233",
                         "Dr. Shahriar Rahman\nMBBS (CMC)\nFCPS (Urology)\nSenior Consultant\nBMDC: U223344",
@@ -95,7 +99,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Dept of Neurology":
+            case "Neurology":
                 doctorList.getItems().addAll(
                         "Dr. Salman Ahmed\nMBBS (DMC)\nMD (Neurology)\nNeurologist\nBMDC: N112233",
                         "Dr. Ritu Saha\nMBBS (CMC)\nFCPS (Neurology)\nSenior Consultant\nBMDC: N223344",
@@ -103,7 +107,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Dept of Psychiatry":
+            case "Psychiatry":
                 doctorList.getItems().addAll(
                         "Dr. Monirul Islam\nMBBS (DMC)\nMD (Psychiatry)\nConsultant Psychiatrist\nBMDC: P112233",
                         "Dr. Shaila Akter\nMBBS (CMC)\nFCPS (Psychiatry)\nSenior Consultant\nBMDC: P223344",
@@ -111,7 +115,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Dept of Pathology":
+            case "Pathology":
                 doctorList.getItems().addAll(
                         "Dr. Nasreen Sultana\nMBBS (DMC)\nMD (Pathology)\nConsultant Pathologist\nBMDC: PA112233",
                         "Dr. Kamrul Hasan\nMBBS (CMC)\nFCPS (Pathology)\nSenior Consultant\nBMDC: PA223344",
