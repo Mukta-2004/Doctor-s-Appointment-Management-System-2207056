@@ -20,3 +20,19 @@
     -fx-padding: 10 22;
     -fx-background-radius: 12;
 }
+/* Gradient background */
+.gradient-bg {
+    -fx-background-color: linear-gradient(
+        to bottom right,
+        #e3f2fd,
+        #bbdefb,
+        #90caf9
+    );
+}
+
+/* Thank you text styling */
+.thank-you-text {
+    -fx-font-size: 28px;
+    -fx-fill: #1565c0;
+    -fx-font-weight: bold;
+}

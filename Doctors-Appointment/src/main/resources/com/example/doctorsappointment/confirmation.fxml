@@ -8,7 +8,8 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.doctorsappointment.ConfirmationController"
             prefWidth="800"
-            prefHeight="600">
+            prefHeight="600"
+            styleClass="gradient-bg">
 
     <VBox alignment="CENTER" spacing="20"
           AnchorPane.topAnchor="0"
@@ -16,9 +17,13 @@
           AnchorPane.leftAnchor="0"
           AnchorPane.rightAnchor="0">
 
-        <Text text="Your appointment is booked" style="-fx-font-size: 24;"/>
+        <Text text="Your appointment is booked"
+              style="-fx-font-size: 24;"/>
+
         <Text fx:id="detailsText"/>
-        <Text text="Thank you for visiting MEDEASE"/>
+
+        <Text text="Thank you for visiting MEDEASE"
+              styleClass="thank-you-text"/>
 
     </VBox>
 

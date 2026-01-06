@@ -15,8 +15,17 @@ public class DoctorListController {
 
     @FXML
     public void initialize() {
+
+        // Show title as it came from previous page
         sectorTitle.setText("Doctors for " + DoctorData.selectedSector);
 
+        // Normalize sector name (FIX for empty list issue)
+        String sector = DoctorData.selectedSector
+                .replace("Dept of", "")
+                .trim()
+                .toLowerCase();
+
+        // Double-click to proceed
         doctorList.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
                 DoctorData.selectedDoctor =
@@ -29,9 +38,9 @@ public class DoctorListController {
             }
         });
 
-        switch (DoctorData.selectedSector) {
+        switch (sector) {
 
-            case "Orthopedic":
+            case "orthopedic":
                 doctorList.getItems().addAll(
                         "Dr. Rahman\nMBBS (DMC)\nMS (Orthopedics)\nConsultant Orthopedic Surgeon\nBMDC: B204512",
                         "Dr. Tanvir Ahmed\nMBBS (CMC)\nFCPS (Orthopedics)\nAssociate Consultant\nBMDC: O332145",
@@ -39,7 +48,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Child Specialist":
+            case "child specialist":
                 doctorList.getItems().addAll(
                         "Dr. Sana Ahmed\nMBBS (CMC)\nMD (Pediatrics)\nChild Specialist\nBMDC: C309876",
                         "Dr. Hasan Mahmud\nMBBS (RMC)\nDCH\nConsultant Pediatrician\nBMDC: C401223",
@@ -48,7 +57,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Surgeon":
+            case "surgeon":
                 doctorList.getItems().addAll(
                         "Dr. Rajib Baishnob\nMBBS (SOMC)\nBCS (Health)\nMS (General Surgery)\nSenior Surgeon\nBMDC: A103083",
                         "Dr. Nayeem Islam\nMBBS (DMC)\nMS (Laparoscopy)\nConsultant Surgeon\nBMDC: S667821",
@@ -57,7 +66,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Medicine Specialist":
+            case "medicine specialist":
                 doctorList.getItems().addAll(
                         "Dr. Akash Sen\nMBBS (MMC)\nMD (Medicine)\nMedicine Specialist\nBMDC: M889120",
                         "Dr. Rubel Khan\nMBBS (DMC)\nFCPS (Medicine)\nConsultant Physician\nBMDC: M990231",
@@ -66,7 +75,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Hematology":
+            case "hematology":
                 doctorList.getItems().addAll(
                         "Dr. Kamal Uddin\nMBBS (DMC)\nMD (Hematology)\nConsultant Hematologist\nBMDC: H112233",
                         "Dr. Nusrat Jahan\nMBBS (CMC)\nFCPS (Hematology)\nSenior Consultant\nBMDC: H223344",
@@ -74,7 +83,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Gynae and Obs":
+            case "gynae and obs":
                 doctorList.getItems().addAll(
                         "Dr. Farzana Akter\nMBBS (DMC)\nFCPS (Gynae)\nGynecologist\nBMDC: G445566",
                         "Dr. Nafisa Tabassum Raha\nMBBS (SSMC)\nMS (Obs & Gynae)\nConsultant\nBMDC: G556677",
@@ -83,7 +92,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Gastroenterology":
+            case "gastroenterology":
                 doctorList.getItems().addAll(
                         "Dr. Mahmud Hasan\nMBBS (DMC)\nMD (Gastro)\nConsultant\nBMDC: GA112233",
                         "Dr. Rashed Khan\nMBBS (CMC)\nFCPS (Gastro)\nSpecialist\nBMDC: GA223344",
@@ -91,7 +100,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Urology":
+            case "urology":
                 doctorList.getItems().addAll(
                         "Dr. Aminul Islam\nMBBS (DMC)\nMS (Urology)\nConsultant Urologist\nBMDC: U112233",
                         "Dr. Shahriar Rahman\nMBBS (CMC)\nFCPS (Urology)\nSenior Consultant\nBMDC: U223344",
@@ -99,7 +108,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Neurology":
+            case "neurology":
                 doctorList.getItems().addAll(
                         "Dr. Salman Ahmed\nMBBS (DMC)\nMD (Neurology)\nNeurologist\nBMDC: N112233",
                         "Dr. Ritu Saha\nMBBS (CMC)\nFCPS (Neurology)\nSenior Consultant\nBMDC: N223344",
@@ -107,7 +116,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Psychiatry":
+            case "psychiatry":
                 doctorList.getItems().addAll(
                         "Dr. Monirul Islam\nMBBS (DMC)\nMD (Psychiatry)\nConsultant Psychiatrist\nBMDC: P112233",
                         "Dr. Shaila Akter\nMBBS (CMC)\nFCPS (Psychiatry)\nSenior Consultant\nBMDC: P223344",
@@ -115,7 +124,7 @@ public class DoctorListController {
                 );
                 break;
 
-            case "Pathology":
+            case "pathology":
                 doctorList.getItems().addAll(
                         "Dr. Nasreen Sultana\nMBBS (DMC)\nMD (Pathology)\nConsultant Pathologist\nBMDC: PA112233",
                         "Dr. Kamrul Hasan\nMBBS (CMC)\nFCPS (Pathology)\nSenior Consultant\nBMDC: PA223344",
