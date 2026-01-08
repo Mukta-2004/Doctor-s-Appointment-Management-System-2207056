@@ -10,7 +10,9 @@
       spacing="15"
       alignment="CENTER"
       prefHeight="600" prefWidth="800"
-      style="-fx-padding: 30;">
+      style="-fx-padding: 30;"
+      stylesheets="@app.css"
+      styleClass="gradient-bg">
 
     <Text fx:id="sectorTitle">
         <font>
@@ -21,3 +23,4 @@
     <ListView fx:id="doctorList" />
 
 </VBox>
+

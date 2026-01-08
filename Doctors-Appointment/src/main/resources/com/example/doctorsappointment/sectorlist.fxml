@@ -3,14 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
 <VBox xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.doctorsappointment.SectorListController"
       spacing="15"
       alignment="CENTER"
       prefHeight="600" prefWidth="800"
-      style="-fx-padding: 30;">
+      style="-fx-padding: 30;"
+      stylesheets="@app.css"
+      styleClass="gradient-bg">
 
     <Text text="Choose Doctor Specialization">
         <font>
@@ -31,3 +32,4 @@
     <Button text="Pathology" prefWidth="260" onAction="#openPathology"/>
 
 </VBox>
+
