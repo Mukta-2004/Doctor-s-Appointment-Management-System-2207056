@@ -8,12 +8,19 @@ public class ConfirmationController {
     @FXML
     private Text detailsText;
 
-    @FXML
-    public void initialize() {
+    private String patientName;
+    private String phone;
+    private int slotIndex;
+
+    // This method will be called from QuestionController
+    public void setPatientInfo(String patientName, String phone, int slotIndex) {
+        this.patientName = patientName;
+        this.phone = phone;
+        this.slotIndex = slotIndex;
+
         detailsText.setText(
-                "Your serial number is: " + (DoctorData.slotIndex + 1) +
-                        "\nAppointment time: " +
-                        TimeUtil.getTimeFromSlot(DoctorData.slotIndex)
+                "Your serial number is: " + (slotIndex + 1) +
+                        "\nAppointment time: " + TimeUtil.getTimeFromSlot(slotIndex)
         );
     }
 }

@@ -2,33 +2,25 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0"
-            style="-fx-background-color: linear-gradient(to right, #f3e7d3, #e1cbb8);"
-            xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.doctorsappointment.Page3Controller">
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.doctorsappointment.Page3Controller"
+      spacing="15"
+      alignment="CENTER"
+      prefWidth="800"
+      prefHeight="600">
 
-    <VBox alignment="TOP_CENTER" spacing="15"
-          AnchorPane.topAnchor="20.0"
-          AnchorPane.bottomAnchor="20.0"
-          AnchorPane.leftAnchor="50.0"
-          AnchorPane.rightAnchor="50.0">
+    <Label text="Your Appointments for Today"/>
 
-        <Label text="Your Appointments for Today">
-            <font>
-                <Font name="Arial Rounded MT Bold" size="20"/>
-            </font>
-        </Label>
+    <Text fx:id="txtEmpty"
+          text="No patients yet"
+          visible="false"/>
 
-        <ListView fx:id="listAppointments"
-                  prefHeight="250"
-                  prefWidth="400"
-                  maxWidth="400"/>
+    <ListView fx:id="listAppointments"
+              prefWidth="400"
+              prefHeight="300"/>
 
-    </VBox>
-
-</AnchorPane>
+</VBox>

@@ -16,18 +16,18 @@
     <Text text="Patient Details"
           style="-fx-font-size: 22; -fx-font-weight: bold;" />
 
-    <TextField fx:id="nameField"
+    <TextField fx:id="txtPatientName"
                promptText="Enter patient name"
                maxWidth="300"/>
 
-    <TextField fx:id="phoneField"
+    <TextField fx:id="txtPhone"
                promptText="Enter phone number"
                maxWidth="300"/>
 
-    <Text fx:id="questionText"
-          style="-fx-font-size: 18; -fx-text-alignment: center;" />
+    <Text text="Do you want to confirm this appointment?"
+          style="-fx-font-size: 18;" />
 
-    <Button text="YES" onAction="#onYes" prefWidth="120"/>
-    <Button text="NO" onAction="#onNo" prefWidth="120"/>
+    <Button text="YES" prefWidth="150" onAction="#saveAppointment"/>
+    <Button text="NO" prefWidth="150" onAction="#onNo"/>
 
 </VBox>

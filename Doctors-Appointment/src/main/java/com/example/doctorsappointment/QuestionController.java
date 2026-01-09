@@ -2,63 +2,59 @@ package com.example.doctorsappointment;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.control.TextField;
 
 public class QuestionController {
 
-    @FXML
-    private Text questionText;
+    @FXML private TextField txtPatientName;
+    @FXML private TextField txtPhone;
 
-    @FXML
-    private TextField nameField;
+    // set from previous page
+    private String doctorName;
+    private String timeSlot;
 
-    @FXML
-    private TextField phoneField;
-
-    @FXML
-    public void initialize() {
-        questionText.setText(
-                "Doctor is available from 10:00 AM to 8:00 PM.\n" +
-                        "Do you want to confirm appointment?"
-        );
+    public void setDoctorInfo(String doctorName, String timeSlot) {
+        this.doctorName = doctorName;
+        this.timeSlot = timeSlot;
     }
-
     @FXML
-    void onYes() {
-        String name = nameField.getText().trim();
-        String phone = phoneField.getText().trim();
+    private void saveAppointment() {
 
-        if (name.isEmpty() || phone.isEmpty()) {
-            questionText.setText(
-                    "Please enter patient name and phone number.\n" +
-                            "Do you want to confirm appointment?"
-            );
-            return;
-        }
+        String patient = txtPatientName.getText();
+        String phone = txtPhone.getText();
 
-        DoctorData.patientName = name;
-        DoctorData.patientPhone = phone;
+        if (patient.isEmpty() || phone.isEmpty()) return;
 
-        Stage stage = (Stage) questionText.getScene().getWindow();
+        // Save appointment and get assigned slot
+        int slotIndex = AppointmentDAO.saveAppointment(doctorName, patient, phone);
 
-        int slot = AppointmentService.getNextAvailableSlot(
-                DoctorData.selectedDoctor
-        );
+        Stage stage = (Stage) txtPatientName.getScene().getWindow();
 
-        if (slot == -1) {
-            SceneUtil.switchScene(stage, "availability.fxml");
-        } else {
-            DoctorData.slotIndex = slot;
-            AppointmentService.bookAppointment(
-                    DoctorData.selectedDoctor, slot
-            );
-            SceneUtil.switchScene(stage, "confirmation.fxml");
+        try {
+            if (slotIndex == -1) {
+                // No slots → Availability page
+                SceneUtil.switchScene(stage, "availability.fxml");
+            } else {
+                // Navigate to confirmation page
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("confirmation.fxml"));
+                Scene scene = new Scene(loader.load());
+
+                ConfirmationController controller = loader.getController();
+                controller.setPatientInfo(patient, phone, slotIndex);
+
+                stage.setScene(scene);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @FXML
-    void onNo() {
-        System.exit(0);
+    private void onNo() {
+        // go back / close / navigate
     }
 }

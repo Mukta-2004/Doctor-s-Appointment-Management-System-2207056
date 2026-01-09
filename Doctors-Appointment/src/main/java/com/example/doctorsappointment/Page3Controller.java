@@ -1,52 +1,66 @@
 package com.example.doctorsappointment;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.util.List;
 
 public class Page3Controller {
 
-    @FXML
-    private ListView<String> listAppointments;
+    @FXML private ListView<AppointmentDTO> listAppointments;
+    @FXML private Text txtEmpty;
 
-    @FXML
-    public void initialize() {
-        listAppointments.setItems(FXCollections.observableArrayList(
-                "10:00 AM - Patient: Noman",
-                "10:30 AM - Patient: Moumia",
-                "11:00 AM - Patient: Rahim",
-                "12:00 PM - Patient: Mou"
-        ));
+    private int doctorId;
+    private String doctorName;
 
-        listAppointments.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2) {
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+        loadDoctorData();
+    }
 
-                String selected = listAppointments.getSelectionModel().getSelectedItem();
-                if (selected == null) return;
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
 
-                try {
-                    FXMLLoader loader = new FXMLLoader(
-                            getClass().getResource("page4.fxml")
-                    );
+    public void loadDoctorData() {
+        List<AppointmentDTO> data = DoctorDashboardDAO.getAppointments(doctorId);
 
-                    Scene scene = new Scene(loader.load());
-                    Page4Controller controller = loader.getController();
+        if (data.isEmpty()) {
+            txtEmpty.setVisible(true);
+            listAppointments.setVisible(false);
+        } else {
+            txtEmpty.setVisible(false);
+            listAppointments.setVisible(true);
 
-                    controller.setData(
-                            listAppointments.getItems(),
-                            selected
-                    );
+            ObservableList<AppointmentDTO> obsData = FXCollections.observableArrayList(data);
+            listAppointments.setItems(obsData);
 
-                    Stage stage = (Stage) listAppointments.getScene().getWindow();
-                    stage.setScene(scene);
+            listAppointments.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2) {
+                    AppointmentDTO selected = listAppointments.getSelectionModel().getSelectedItem();
+                    if (selected == null) return;
 
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("page4.fxml"));
+                        Scene scene = new Scene(loader.load());
+
+                        Page4Controller controller = loader.getController();
+                        controller.setAppointment(selected); // pass selected appointment
+
+                        Stage stage = (Stage) listAppointments.getScene().getWindow();
+                        stage.setScene(scene);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 }
