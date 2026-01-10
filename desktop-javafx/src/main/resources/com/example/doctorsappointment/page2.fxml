@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0"
+            style="-fx-background-color: linear-gradient(to right, #f3e7d3, #e1cbb8);"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.doctorsappointment.Page2Controller">
+
+    <VBox alignment="CENTER" spacing="15"
+          AnchorPane.topAnchor="0.0"
+          AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0">
+
+        <Label text="Welcome Doctor">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="22.0"/>
+            </font>
+        </Label>
+
+        <TextField fx:id="txtName"
+                   promptText="Doctor Name" prefWidth="250" maxWidth="260"/>
+        <TextField fx:id="txtEmail"
+                   promptText="Email Address" prefWidth="250" maxWidth="260"/>
+        <TextField fx:id="txtID"
+                   promptText="Doctor ID" prefWidth="250" maxWidth="260"/>
+
+        <Button fx:id="btnSubmit"
+                text="Submit"
+                style="-fx-background-color:#87CEEB;
+               -fx-text-fill:white;
+               -fx-font-size:14px;
+               -fx-background-radius:10;" />
+
+
+    </VBox>
+
+</AnchorPane>
