@@ -13,7 +13,8 @@ public class DatabaseUtil {
             st.execute("""
                 CREATE TABLE IF NOT EXISTS doctor (
                     doctor_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    doctor_name TEXT UNIQUE
+                    doctor_name TEXT UNIQUE,
+                    email TEXT
                 )
             """);
 

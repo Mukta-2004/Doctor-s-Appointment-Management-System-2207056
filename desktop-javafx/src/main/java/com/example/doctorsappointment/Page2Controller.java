@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 
 public class Page2Controller {
 
+    public TextField txtName;
     @FXML private TextField txtDoctorName;
     @FXML private TextField txtEmail;
     @FXML private TextField txtID; // optional, not used in DB
@@ -26,7 +27,7 @@ public class Page2Controller {
 
     private void loginDoctor() {
         try {
-            String name = txtDoctorName.getText().trim();
+            String name = txtName.getText().trim();
             String email = txtEmail.getText().trim();
             String id = txtID.getText().trim(); // can be ignored
 
