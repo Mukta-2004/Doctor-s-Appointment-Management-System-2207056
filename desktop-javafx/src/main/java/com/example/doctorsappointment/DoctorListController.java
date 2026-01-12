@@ -1,9 +1,14 @@
 package com.example.doctorsappointment;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class DoctorListController {
 
@@ -31,10 +36,32 @@ public class DoctorListController {
                 DoctorData.selectedDoctor =
                         doctorList.getSelectionModel().getSelectedItem();
 
-                SceneUtil.switchScene(
+                /*SceneUtil.switchScene(
                         (Stage) doctorList.getScene().getWindow(),
                         "question.fxml"
+                );*/
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("question.fxml")
                 );
+
+                Scene scene = null;
+                try {
+                    scene = new Scene(loader.load());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                scene.getStylesheets().add(
+                        SceneUtil.class.getResource("app.css").toExternalForm()
+                );
+
+                QuestionController questionController = (QuestionController) loader.getController();
+                questionController.setDoctorInfo(DoctorData.selectedDoctor, "12: 00 PM");
+
+                stage.setScene(scene);
+                stage.show();
             }
         });
 

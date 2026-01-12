@@ -13,14 +13,12 @@ public class AppointmentDAO {
 
         try (Connection con = DatabaseUtil.getConnection()) {
 
-            // Insert doctor if not exists
             int doctorId = getDoctorId(con, doctorName);
-
-            //  Insert patient if not exists
             int patientId = getPatientId(con, patientName, phone);
 
-            //  Check booked slots for this doctor
+            // Get booked slots
             List<Integer> bookedSlots = getBookedSlots(con, doctorId);
+
             int slotIndex = -1;
             for (int i = 0; i < TOTAL_SLOTS; i++) {
                 if (!bookedSlots.contains(i)) {
@@ -29,18 +27,14 @@ public class AppointmentDAO {
                 }
             }
 
-            if (slotIndex == -1) {
-                // No slots available
-                return -1;
-            }
+            if (slotIndex == -1) return -1;
 
-            // Insert appointment
-            String time = TimeUtil.getTimeFromSlot(slotIndex);
-            String sql = "INSERT INTO appointment_details (doctor_id, patient_id, appointment_time) VALUES (?, ?, ?)";
+            // Insert appointment **store slot_index instead of time**
+            String sql = "INSERT INTO appointment_details (doctor_id, patient_id, slot_index) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, doctorId);
             ps.setInt(2, patientId);
-            ps.setString(3, time);
+            ps.setInt(3, slotIndex);
             ps.executeUpdate();
 
             return slotIndex;
@@ -50,6 +44,8 @@ public class AppointmentDAO {
             return -1;
         }
     }
+
+
 
     private static int getDoctorId(Connection con, String doctorName) throws SQLException {
         String query = "SELECT doctor_id FROM doctor WHERE doctor_name = ?";
@@ -87,16 +83,16 @@ public class AppointmentDAO {
 
     private static List<Integer> getBookedSlots(Connection con, int doctorId) throws SQLException {
         List<Integer> slots = new ArrayList<>();
-        String query = "SELECT appointment_time FROM appointment_details WHERE doctor_id = ?";
+        String query = "SELECT slot_index FROM appointment_details WHERE doctor_id = ?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setInt(1, doctorId);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            String time = rs.getString("appointment_time");
-            slots.add(TimeUtil.getSlotFromTime(time));
+            slots.add(rs.getInt("slot_index"));
         }
         return slots;
     }
+
 
     public static void cancelAppointment(int appointmentId) {
         try (Connection con = DatabaseUtil.getConnection()) {
